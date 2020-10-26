@@ -1,0 +1,59 @@
+
+<div class="container">
+  <h2>{{survey.firstName}} {{survey.lastName}}</h2>
+  <p>Survey Date: {{survey.dateOfSurvey | date}}</p>
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <th>Survey #:</th>
+        <td>{{survey.id}}</td>
+      </tr>
+      <tr>
+        <th>Address:</th>
+        <td>{{survey.address}}</td>
+      </tr>
+      <tr>
+        <th>City:</th>
+        <td>{{survey.city}}</td>
+      </tr>
+      <tr>
+        <th>State:</th>
+        <td>{{survey.state}}</td>
+      </tr>
+      <tr>
+        <th>Phone Number:</th>
+        <td>{{survey.telephone}}</td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td>{{survey.email}}</td>
+      </tr>
+      <tr>
+        <th>Like Most:</th>
+        <td><p *ngFor="let test of (survey.likeMost | like)">{{test}}</p></td>
+      </tr>
+      <tr>
+        <th>Referral:</th>
+        <td *ngIf="survey.referral == 0">Friends</td>
+        <td *ngIf="survey.referral == 1">Television</td>
+        <td *ngIf="survey.referral == 2">Internet</td>
+        <td *ngIf="survey.referral == 3">Other</td>
+      </tr>
+      <tr>
+        <th>Likely to Recommend School:</th>
+        <td *ngIf="survey.recommend == 0">Very Likely</td>
+        <td *ngIf="survey.recommend == 1">Likely</td>
+        <td *ngIf="survey.recommend == 2">Unlikely</td>
+      </tr>
+      <tr>
+        <th>Comments:</th>
+        <td>{{survey.comments}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<footer>
+<a [routerLink]="['/']">Home</a>
+<a [routerLink]="['/form']">Submit survey</a>
+<a [routerLink]="['/surveys']">View Surveys</a>
+</footer>

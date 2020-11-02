@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observer } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Survey } from '../models/survey'
+import { Survey } from '../models/survey';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +22,16 @@ export class SurveyService {
    }
 
    index(){
-     this._http.get('http://localhost:3000/surveys').subscribe(
+     this._http.get(`${environment.api}/surveys`).subscribe(
        (observer) => { this.surveysObservers.next(observer['surveys']); }
      )
    }
 
+   happy(): any{
+     return this._http.get(`${environment.api}/test1`);
+   }
+
    show(id: string): any{
-     return this._http.post<Survey>(`http://localhost:3000/survey`, {id: id});
+     return this._http.post<Survey>(`${environment.api}/survey`, {id: id});
    }
 }

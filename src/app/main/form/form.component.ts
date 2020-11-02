@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SurveyService } from '../../services/survey.service';
+import { Observable, of, EMPTY, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _surveyService: SurveyService) { }
 
   ngOnInit(): void {
+
+    this._surveyService.happy().subscribe( data => console.log(data));
   }
 
 }

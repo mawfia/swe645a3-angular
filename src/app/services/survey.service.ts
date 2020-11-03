@@ -28,7 +28,7 @@ export class SurveyService {
    }
 
    happy(): any{
-     return this._http.get(`${environment.api}/test1`);
+     return this._http.get(`${environment.api}/test_api`);
    }
 
    show(id: string): any{

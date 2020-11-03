@@ -9,6 +9,7 @@ import { SurveyComponent } from './main/survey/survey.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { SurveyService } from './services/survey.service';
 
@@ -24,6 +25,7 @@ import { Like } from './pipes/like.pipe';
     Like
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

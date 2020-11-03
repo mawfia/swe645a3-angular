@@ -2,5 +2,180 @@
 
 <header>
 <a [routerLink]="['/']">Home</a>
-<a [routerLink]="['/surveys']">View Surveys</a>  
+<a [routerLink]="['/surveys']">View Surveys</a>
 </header>
+
+<div class="container">
+  <form class="form-horizontal col-md-offset-2" action="" #formData='ngForm' (submit)="create(formData.value)" novalidate>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="fname">First Name:</label>
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="fname"
+          placeholder="Jane"
+          name="fname"
+          required
+          [(ngModel)]="survey.firstName"
+          #firstName="ngModel"
+          >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="lname">Last Name:</label>
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="lname"
+          placeholder="Doe"
+          name="lname"
+          required
+          [(ngModel)]="survey.lastName"
+          #lastName="ngModel"
+          >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="address">Street Address:</label>
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="address"
+          placeholder="4400 University Dr"
+          name="address"
+          required
+          [(ngModel)]="survey.address"
+          #address="ngModel"
+          >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2" for="city">City:</label>
+      <div class="col-sm-4">
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          placeholder="Fairfax"
+          name="city"
+          required
+          [(ngModel)]="survey.city"
+          #city="ngModel"
+          >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="state">State:</label>
+      <div class="col-sm-4">
+        <input
+          type="text"
+          class="form-control"
+          id="state"
+          placeholder="Virginia"
+          name="state"
+          required
+          [(ngModel)]="survey.state"
+          #state="ngModel"
+          >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="zip">Zip Code:</label>
+      <div class="col-sm-3">
+        <input
+          type="number"
+          class="form-control"
+          id="zip"
+          placeholder="22030"
+          name="zip"
+          required
+          [(ngModel)]="survey.zip"
+          #zip="ngModel"
+          >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="phone">Telephone Number:</label>
+      <div class="col-sm-4">
+        <input type="tel" class="form-control" id="phone" placeholder="703-993-1000" name="phone" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-6">
+        <input type="email" class="form-control" id="email" placeholder="csgrad@gmu.edu" name="email" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="dos">Date of Survey:</label>
+      <div class="col-sm-6">
+        <input type="date" class="form-control" placeholder="mm/dd/yyyy" id="dos" name="dos" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6"><label class="control-label col-sm-4" for="like">Like Most:</label>
+        <div class="col-sm-6">
+          <div class="checkbox">
+          <label><input type="checkbox" value="">Students</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Location</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Campus</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Atmosphere</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Dorm Rooms</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Sports</label>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12"><label class="control-label col-sm-2" for="interest">Referred By:</label>
+          <label class="radio-inline"><input type="radio" name="interest" checked>Friends</label>
+      <label class="radio-inline"><input type="radio" name="interest">Television</label>
+      <label class="radio-inline"><input type="radio" name="interest">Internet</label>
+      <label class="radio-inline"><input type="radio" name="interest">Other</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <label class="control-label col-sm-2" for="recommend">Likely to Recommend School:</label>
+        <div class="col-sm-4"><select class="form-control" id="recommend">
+          <option>Very Likely</option>
+          <option>Likely</option>
+          <option>Unlikely</option>
+        </select></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12">
+      <label class="control-label col-sm-2" for="raffle">Raffle:</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="raffle" placeholder="1,25,67,..." name="raffle">
+          <small id="raffleHelp" class="form-text text-muted">Enter at least ten comma separated numbers ranging from 1 through 100.</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+    <label class="col-sm-6" for="comment">Additional Comments:</label>
+    <textarea class="form-control" rows="5" id="comment"></textarea>
+  </div>
+    <div class="form-group">
+      <div class="btn-group col-sm-offset-4">
+      <button type="button" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-default">Cancel</button>
+    </div>
+    </div>
+  </form>
+</div>
+<footer><a href="https://swe-645.s3.amazonaws.com/andrew+williams/index.html">Home</a></footer>

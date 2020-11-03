@@ -11,6 +11,7 @@ spec:
   selector:
     app: express-angular
     tier: frontend
+  clusterIP: 10.100.20.245
 ---
 apiVersion: apps/v1
 kind: Deployment

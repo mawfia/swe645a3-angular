@@ -17,6 +17,7 @@ export class SurveyComponent implements OnInit {
 
   ngOnInit(): void {
 
+    $('link[rel="icon"]').attr("href",`./assets/favicon${Math.floor((Math.random()*5))}.png`);
     //this.f1(this.route.snapshot.data);
 
     /*this.route.data.subscribe(

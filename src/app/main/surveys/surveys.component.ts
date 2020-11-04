@@ -19,6 +19,7 @@ export class SurveysComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     $('title').text('List | Student Surveys');
+    $('link[rel="icon"]').attr("href",`./assets/favicon${Math.floor((Math.random()*5))}.png`);
 
     this.subscription = this._surveyService.surveysObservers.subscribe(
       (surveys:Survey[]) => { this.surveys = surveys; }

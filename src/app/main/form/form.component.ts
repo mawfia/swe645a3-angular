@@ -19,6 +19,7 @@ export class FormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     $('title').text('Form | Student Survey');
+    $('link[rel="icon"]').attr("href",`./assets/favicon${Math.floor((Math.random()*5))}.png`);
   }
 
   create(survey:Survey): void{
@@ -26,9 +27,9 @@ export class FormComponent implements OnInit, OnDestroy {
     let convert: string = "";
     Object.values(this.survey.likeMost).forEach( (l,i) => convert += l ? 1 : 0);
 
-    this.survey.likeMost = parseInt(convert, 2) || 0;
-    this.survey.referral = parseInt(this.survey.referral, 10) || 1;
-    this.survey.recommend = {"Very Likely" : 0, "Likely" : 1, "Unlikely" : 2}[this.survey.recommend] || 1;
+    this.survey.likeMost = 0//parseInt(convert, 2) || 0;
+    this.survey.referral = 0//parseInt(this.survey.referral, 10) || 1;
+    this.survey.recommend = 0//{"Very Likely" : 0, "Likely" : 1, "Unlikely" : 2}[this.survey.recommend] || 1;
     this.survey.telephone = this.survey.telephone.replace(/[^\d]/gi, "");
 
     this._surveyService.create(this.survey).subscribe( (survey: Survey) => {

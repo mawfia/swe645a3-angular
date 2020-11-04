@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     $('title').text('Main | Student Survey');
+    $('link[rel="icon"]').attr("href",`./assets/favicon${Math.floor((Math.random()*5))}.png`);
     if(localStorage.getItem("submit")) this.myFunction(JSON.parse(localStorage.getItem("submit")));
     if(localStorage.getItem("cancel")) this.myFunction(false);
   }

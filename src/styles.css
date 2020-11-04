@@ -17,3 +17,11 @@ h1{
 .warnings{
   color: orange;
 }
+
+footer{
+  text-align: center;
+}
+
+footer a{
+  margin-right: 10px;
+}

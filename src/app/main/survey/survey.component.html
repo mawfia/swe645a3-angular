@@ -2,6 +2,14 @@
 <div class="container">
   <h2>{{survey.firstName}} {{survey.lastName}}</h2>
   <p>Survey Date: {{survey.dateOfSurvey | date}}</p>
+  <ngx-spinner
+    bdColor = "rgba(255,255,255,0.8)"
+    size="medium"
+    color="#b9fff4"
+    type="ball-atom"
+    [fullScreen] = "false"
+    ><p style="color: blue" > Loading... </p>
+  </ngx-spinner>
   <table class="table table-hover">
     <tbody>
       <tr>

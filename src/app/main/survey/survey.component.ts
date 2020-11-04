@@ -19,7 +19,7 @@ export class SurveyComponent implements OnInit {
 
     //this.f1(this.route.snapshot.data);
 
-  /*this.route.data.subscribe(
+    /*this.route.data.subscribe(
         (data) => {
           if(data) {
             this.survey = data.survey;

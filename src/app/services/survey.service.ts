@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observer } from 'rxjs';
+import { BehaviorSubject, Observer, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Survey } from '../models/survey';
 import { environment } from '../../environments/environment';
@@ -21,17 +21,17 @@ export class SurveyService {
       this.index();
    }
 
-   index(){
+   index(): void{
      this._http.get(`${environment.api}/surveys`).subscribe(
-       (observer) => { this.surveysObservers.next(observer['surveys']); }
+       (observer: Observer<Survey[]>) => { this.surveysObservers.next(observer['surveys']); }
      )
    }
 
-   happy(): any{
-     return this._http.get(`${environment.api}/test_api`);
+   create(survey: Survey): Observable<Survey>{
+     return this._http.post<Survey>(`${environment.api}/create`, {survey: survey});
    }
 
-   show(id: string): any{
+   show(id: string): Observable<Survey>{
      return this._http.post<Survey>(`${environment.api}/survey`, {id: id});
    }
 }

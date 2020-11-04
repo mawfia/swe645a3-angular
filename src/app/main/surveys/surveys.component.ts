@@ -17,10 +17,10 @@ export class SurveysComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    $('title').text('Surveys List');
+    $('title').text('List | Student Surveys');
 
     this.subscription = this._surveyService.surveysObservers.subscribe(
-      (surveys) => { this.surveys = surveys; }
+      (surveys:Survey[]) => { this.surveys = surveys; }
     )
   }
 

@@ -1,3 +1,5 @@
+import { Likes } from './likes';
+
 export class Survey {
 	constructor(
 		public firstName?: string,
@@ -9,9 +11,10 @@ export class Survey {
     public telephone?: string,
     public email?: string,
 		public dateOfSurvey: Date = new Date(),
-    public referral: number = 0,
-    public likeMost: number = 0,
-    public recommend: number = 0,
+    public referral: any = "1",
+    public likeMost: any = new Likes(),
+    public recommend: any = "Likely",
+		public raffle?: string,
     public comments?: string,
 		public id?: number
   ){}

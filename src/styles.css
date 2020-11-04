@@ -9,3 +9,11 @@ h1{
   header a:nth-of-type(1){
     margin-right: 10px;
   }
+
+.errors{
+  color: red;
+}
+
+.warnings{
+  color: orange;
+}

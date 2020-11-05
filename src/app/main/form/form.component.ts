@@ -31,6 +31,7 @@ export class FormComponent implements OnInit, OnDestroy {
     this.survey.referral = parseInt(this.survey.referral, 10) || 1;
     this.survey.recommend = {"Very Likely" : 0, "Likely" : 1, "Unlikely" : 2}[this.survey.recommend] || 1;
     this.survey.telephone = this.survey.telephone.replace(/[^\d]/gi, "");
+    delete this.survey.raffle;
 
 
     this._surveyService.create(this.survey).subscribe( (survey: Survey) => {
